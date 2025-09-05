@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dinemate/static/css/main.70d7afb0.css",
-    "main.js": "/dinemate/static/js/main.d58d2842.js",
+    "main.js": "/dinemate/static/js/main.ca44c583.js",
     "static/js/453.d5e5461a.chunk.js": "/dinemate/static/js/453.d5e5461a.chunk.js",
     "index.html": "/dinemate/index.html",
     "main.70d7afb0.css.map": "/dinemate/static/css/main.70d7afb0.css.map",
-    "main.d58d2842.js.map": "/dinemate/static/js/main.d58d2842.js.map",
+    "main.ca44c583.js.map": "/dinemate/static/js/main.ca44c583.js.map",
     "453.d5e5461a.chunk.js.map": "/dinemate/static/js/453.d5e5461a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.70d7afb0.css",
-    "static/js/main.d58d2842.js"
+    "static/js/main.ca44c583.js"
   ]
 }
