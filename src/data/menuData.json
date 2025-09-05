@@ -1,0 +1,271 @@
+[
+    {
+        "id": 1,
+        "name": "Tomato Soup",
+        "price": 120,
+        "category": "Starters",
+        "ingredients": [
+            "Tomatoes",
+            "Onion",
+            "Garlic",
+            "Cream",
+            "Spices"
+        ],
+        "image": ""
+    },
+    {
+        "id": 2,
+        "images": "/menuImages/spring-roll.jpg",
+        "name": "Spring Rolls",
+        "price": 150,
+        "category": "Starters",
+        "ingredients": [
+            "Cabbage",
+            "Carrot",
+            "Capsicum",
+            "Soy Sauce",
+            "Flour Wrap"
+        ]
+    },
+    {
+        "id": 3,
+        "images": "/menuImages/chicekn-tikka.jpg",
+        "name": "Chicken Tikka",
+        "price": 220,
+        "category": "Starters",
+        "ingredients": [
+            "Chicken",
+            "Yogurt",
+            "Ginger-Garlic Paste",
+            "Spices"
+        ]
+    },
+    {
+        "id": 4,
+        "images": "/menuImages/paneer-tikka.jpg",
+        "name": "Paneer Tikka",
+        "price": 200,
+        "category": "Starters",
+        "ingredients": [
+            "Paneer",
+            "Capsicum",
+            "Onion",
+            "Yogurt",
+            "Spices"
+        ]
+    },
+    {
+        "id": 5,
+        "images": "/menuImages/ceasar-salad.jpg",
+        "name": "Caesar Salad",
+        "price": 180,
+        "category": "Starters",
+        "ingredients": [
+            "Lettuce",
+            "Croutons",
+            "Parmesan",
+            "Caesar Dressing"
+        ]
+    },
+    {
+        "id": 6,
+        "images": "",
+        "name": "Butter Chicken",
+        "price": 350,
+        "category": "Main Course",
+        "ingredients": [
+            "Chicken",
+            "Tomato Gravy",
+            "Butter",
+            "Cream",
+            "Spices"
+        ]
+    },
+    {
+        "id": 7,
+        "images": "",
+        "name": "Paneer Butter Masala",
+        "price": 300,
+        "category": "Main Course",
+        "ingredients": [
+            "Paneer",
+            "Tomato Gravy",
+            "Butter",
+            "Cream",
+            "Spices"
+        ]
+    },
+    {
+        "id": 8,
+        "images": "",
+        "name": "Dal Makhani",
+        "price": 250,
+        "category": "Main Course",
+        "ingredients": [
+            "Black Lentils",
+            "Kidney Beans",
+            "Butter",
+            "Cream",
+            "Spices"
+        ]
+    },
+    {
+        "id": 9,
+        "images": "/menuImages/veg-biryani.jpg",
+        "name": "Veg Biryani",
+        "price": 280,
+        "category": "Main Course",
+        "ingredients": [
+            "Basmati Rice",
+            "Carrot",
+            "Beans",
+            "Peas",
+            "Spices"
+        ]
+    },
+    {
+        "id": 10,
+        "images": "/menuImages/chicekn-biryani.jpg",
+        "name": "Chicken Biryani",
+        "price": 320,
+        "category": "Main Course",
+        "ingredients": [
+            "Basmati Rice",
+            "Chicken",
+            "Yogurt",
+            "Onion",
+            "Spices"
+        ]
+    },
+    {
+        "id": 11,
+        "images": "",
+        "name": "Chocolate Brownie",
+        "price": 160,
+        "category": "Dessert",
+        "ingredients": [
+            "Cocoa",
+            "Flour",
+            "Butter",
+            "Sugar",
+            "Nuts"
+        ]
+    },
+    {
+        "id": 12,
+        "images": "",
+        "name": "Gulab Jamun",
+        "price": 100,
+        "category": "Dessert",
+        "ingredients": [
+            "Khoya",
+            "Flour",
+            "Sugar Syrup",
+            "Cardamom"
+        ]
+    },
+    {
+        "id": 13,
+        "images": "",
+        "name": "Rasgulla",
+        "price": 110,
+        "category": "Dessert",
+        "ingredients": [
+            "Chhena",
+            "Semolina",
+            "Sugar Syrup",
+            "Rose Water"
+        ]
+    },
+    {
+        "id": 14,
+        "images": "",
+        "name": "Ice Cream Sundae",
+        "price": 150,
+        "category": "Dessert",
+        "ingredients": [
+            "Ice Cream",
+            "Chocolate Syrup",
+            "Whipped Cream",
+            "Nuts"
+        ]
+    },
+    {
+        "id": 15,
+        "images": "/menuImages/cheesecake.jpg",
+        "name": "Cheesecake",
+        "price": 200,
+        "category": "Dessert",
+        "ingredients": [
+            "Cream Cheese",
+            "Sugar",
+            "Biscuit Base",
+            "Fruit Topping"
+        ]
+    },
+    {
+        "id": 16,
+        "images": "/menuImages/mango-lassi.jpg",
+        "name": "Mango Lassi",
+        "price": 90,
+        "category": "Drinks",
+        "ingredients": [
+            "Mango",
+            "Yogurt",
+            "Milk",
+            "Sugar"
+        ]
+    },
+    {
+        "id": 17,
+        "images": "/menuImages/cold-coffee.jpg",
+        "name": "Cold Coffee",
+        "price": 120,
+        "category": "Drinks",
+        "ingredients": [
+            "Coffee",
+            "Milk",
+            "Sugar",
+            "Ice Cream"
+        ]
+    },
+    {
+        "id": 18,
+        "images": "/menuImages/masala-chai.jpg",
+        "name": "Masala Chai",
+        "price": 60,
+        "category": "Drinks",
+        "ingredients": [
+            "Tea Leaves",
+            "Milk",
+            "Cardamom",
+            "Ginger"
+        ]
+    },
+    {
+        "id": 19,
+        "images": "",
+        "name": "Fresh Lime Soda",
+        "price": 80,
+        "category": "Drinks",
+        "ingredients": [
+            "Lemon",
+            "Soda",
+            "Salt",
+            "Sugar"
+        ]
+    },
+    {
+        "id": 20,
+        "images": "/menuImages/virgin-mojito.jpg",
+        "name": "Virgin Mojito",
+        "price": 140,
+        "category": "Drinks",
+        "ingredients": [
+            "Mint",
+            "Lemon",
+            "Sugar Syrup",
+            "Soda"
+        ]
+    }
+]
