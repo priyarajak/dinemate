@@ -7,6 +7,26 @@ export default function CartItems() {
     const { cartItems, confirmedCart, billNeeded } = useSelector(state => state.dinemate)
     const dispatch = useDispatch()
 
+
+    const billedItems = confirmedCart.reduce((acc, item) => {
+        const existing = acc.find((i) => i.name === item.name);
+
+        if (existing) {
+            existing.qty += item.qty;
+            existing.total += item.qty * item.price;
+        } else {
+            acc.push({
+                name: item.name,
+                qty: item.qty,
+                price: item.price,
+                total: item.qty * item.price
+            });
+        }
+
+        return acc;
+    }, []);
+
+
     const subTotal = confirmedCart ? confirmedCart.reduce((sum, item) => sum + item.price * item.quantity, 0) : 0
     const grandTotal = 1.1 * subTotal
 
@@ -16,7 +36,7 @@ export default function CartItems() {
             {billNeeded && <div>
                 <h1>Thankyou for Dining with us !!</h1>
                 <ul className="list-unstyled">
-                    {confirmedCart && confirmedCart.map(item => (
+                    {billedItems && billedItems.map(item => (
                         <li key={item.id} className="mb-3 border-bottom pb-2">
                             <div className="d-flex justify-content-between align-items-center">
                                 <div>
