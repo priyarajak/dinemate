@@ -38,7 +38,7 @@ export default function CartItems() {
                                         <span>{item.quantity}</span>
                                     </div>
                                 </div>
-                                <span className="fw-bold">${item.total}</span>
+                                <span className="fw-bold">${item.price}</span>
                             </div>
                         </li>
                     ))}
