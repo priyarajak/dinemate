@@ -8,23 +8,16 @@ export default function CartItems() {
     const dispatch = useDispatch()
 
 
-    const billedItems = confirmedCart.reduce((acc, item) => {
-        const existing = acc.find((i) => i.name === item.name);
-
-        if (existing) {
-            existing.qty += item.qty;
-            existing.total += item.qty * item.price;
-        } else {
-            acc.push({
-                name: item.name,
-                qty: item.qty,
-                price: item.price,
-                total: item.qty * item.price
-            });
+    const billedItems = confirmedCart.reduce((res, item) => {
+        if (!res[item.name]) {
+            res.push(item)
         }
-
-        return acc;
-    }, []);
+        else {
+            res[item.name] += item.quantity;
+            res[item.price] += item.price
+        }
+        return res
+    }, [])
 
 
     const subTotal = confirmedCart ? confirmedCart.reduce((sum, item) => sum + item.price * item.quantity, 0) : 0
@@ -45,7 +38,7 @@ export default function CartItems() {
                                         <span>{item.quantity}</span>
                                     </div>
                                 </div>
-                                <span className="fw-bold">${item.price * item.quantity}</span>
+                                <span className="fw-bold">${item.total}</span>
                             </div>
                         </li>
                     ))}
