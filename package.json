@@ -18,7 +18,10 @@
     "redux-toolkit": "^1.1.2",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://priyarajak.github.io/dinemate",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -44,6 +47,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.12"
   }

@@ -1,0 +1,42 @@
+[
+    {
+        "user": "alice123",
+        "pwd": "blueSky!45"
+    },
+    {
+        "user": "bob_dev",
+        "pwd": "codeMaster99"
+    },
+    {
+        "user": "charlieX",
+        "pwd": "pass@2025"
+    },
+    {
+        "user": "diana_k",
+        "pwd": "sunFlower#77"
+    },
+    {
+        "user": "eve_admin",
+        "pwd": "rootAccess*1"
+    },
+    {
+        "user": "frankie",
+        "pwd": "mountainView88"
+    },
+    {
+        "user": "grace_h",
+        "pwd": "pinkCloud!23"
+    },
+    {
+        "user": "harry_p",
+        "pwd": "wizardWorld42"
+    },
+    {
+        "user": "ivyTech",
+        "pwd": "secureLogin09"
+    },
+    {
+        "user": "jackson",
+        "pwd": "greenLeaf$56"
+    }
+]
