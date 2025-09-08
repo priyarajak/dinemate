@@ -18,6 +18,7 @@
     "redux-toolkit": "^1.1.2",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://priyarajak.github.io/dinemate",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
