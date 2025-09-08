@@ -4,7 +4,7 @@ import { addItems, removeItems, confirmOrder, setBillNeeded, loadOrdersFromStora
 
 export default function CartItems() {
 
-    const { cartItems, confirmedCart, confirmedItems, tableNumber } = useSelector(state => state.dinemate)
+    const { cartItems, confirmedItems, tableNumber } = useSelector(state => state.dinemate)
     const dispatch = useDispatch()
     useEffect(() => {
         const syncOrders = () => dispatch(loadOrdersFromStorage());
@@ -18,7 +18,6 @@ export default function CartItems() {
     );
 
     const billStatus = order?.billNeeded || false;
-    console.log("BILL", billStatus)
     let billedItems = []
     if (billStatus) {
         billedItems = order.items.reduce((res, item) => {
@@ -36,9 +35,9 @@ export default function CartItems() {
 
 
 
-    const subTotal = confirmedCart ? confirmedCart.reduce((sum, item) => sum + item.price * item.quantity, 0) : 0
+    const subTotal = order ? order.items.reduce((sum, item) => sum + item.price * item.quantity, 0) : 0
     const grandTotal = 1.1 * subTotal
-
+    console.log(order.items)
 
     return (
         <>
@@ -63,7 +62,7 @@ export default function CartItems() {
                 <h1>Everything Looks so Yummy</h1>
                 <div className="scrollable-menu" style={{ maxHeight: "700px" }}>
                     <ul className="list-unstyled">
-                        {confirmedCart && confirmedCart.map(item => (
+                        {order && order.items.map(item => (
                             <li key={item.id} className="mb-3 border-bottom pb-2">
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div>
@@ -100,7 +99,7 @@ export default function CartItems() {
                 <div className="mt-3">
                     <button onClick={() => dispatch(confirmOrder())}
                         type="button" class={cartItems.length !== 0 ? "btn btn-primary" : "btn btn-secondary"}
-                        disabled={cartItems.length === 0 && confirmedCart.billNeeded} >Add These</button>
+                        disabled={cartItems.length === 0 && confirmedItems.billNeeded} >Add These</button>
                     <div className="d-flex justify-content-between">
                         <h5>Taxes :</h5><span>{0.1 * subTotal}</span>
                     </div>

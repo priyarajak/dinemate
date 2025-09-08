@@ -64,17 +64,11 @@ const dinemateSlice = createSlice({
                 state.confirmedItems.push(newOrder);
                 orderToSave = newOrder;
             }
+            console.log("SLICE:", [...state.confirmedItems])
 
-            // Remove confirmedCart usage:
-            // state.confirmedCart.push(...state.cartItems);
-            // state.cartItems = [];
-            state.cartItems = []; // keep clearing cart, but don't push to confirmedCart
-
-            // In setBillNeeded
-
+            state.cartItems = [];
             localStorage.setItem("orders", JSON.stringify(state.confirmedItems));
 
-            // Optionally remove confirmedCart dependency
             console.log("Saved Orders:", JSON.parse(localStorage.getItem("orders")));
         }
         ,
@@ -84,14 +78,12 @@ const dinemateSlice = createSlice({
         setBillNeeded(state, action) {
             const tableNumber = action.payload;
 
-            // Create a new array with updated billNeeded for the right order
             state.confirmedItems = state.confirmedItems.map(order =>
                 order.tableNumber === tableNumber
                     ? { ...order, billNeeded: true }
                     : order
             );
 
-            // Save the *whole updated array* back to localStorage
             localStorage.setItem("orders", JSON.stringify(state.confirmedItems));
 
             console.log("BILL NEEDED FUNCTION", state.confirmedItems)
