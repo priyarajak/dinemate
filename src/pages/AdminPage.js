@@ -3,7 +3,7 @@ import OrderRecieved from "../components/OrdersRecieved"
 import loginIDs from "../data/loginIDs.json"
 
 export default function AdminPage() {
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(true)
     const [userID, setUserID] = useState("")
     const [password, setPassword] = useState("")
 

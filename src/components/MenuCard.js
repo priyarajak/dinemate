@@ -4,13 +4,18 @@ import { addItems } from '../features/dinemateSlice'
 
 export default function MenuCard() {
 
-    const { billNeeded } = useSelector(state => state.dinemate)
+    const { confirmedItems, tableNumber } = useSelector(state => state.dinemate)
     const categoryOrder = ["Drinks", "Starters", "Main Course", "Dessert"];
     const dispatch = useDispatch();
+    const order = confirmedItems.find(
+        o => o.tableNumber === tableNumber && !o.status.paid
+    );
+
+    const billStatus = order?.billNeeded || false;
 
     return (
         <div className="">
-            {billNeeded ? (
+            {billStatus ? (
                 <div class="alert alert-success" role="alert">
                     <h4 class="alert-heading">Hope You Enjoyed The Meal!</h4>
                     <p class="mb-0">Waiter Will be here in a second.</p>
