@@ -9,8 +9,9 @@ export default function CartItems() {
 
 
     const billedItems = confirmedCart.reduce((res, item) => {
+        console.log(res, item)
         if (!res[item.name]) {
-            res.push(item)
+            res[item.name] = { ...item, quantity: 0, price: 0 }
         }
         else {
             res[item.name] += item.quantity;

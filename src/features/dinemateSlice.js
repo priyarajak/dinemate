@@ -55,6 +55,8 @@ const dinemateSlice = createSlice({
             state.confirmedCart.push(...state.cartItems)
             state.cartItems = [];
             state.orderConfirmed = true;
+
+            localStorage.setItem("orders", JSON.stringify(state.confirmedItems));
         },
         setTableNumber(state, action) {
             state.tableNumber = action.payload

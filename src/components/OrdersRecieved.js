@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Container, Badge, Card, Form } from "react-bootstrap";
-import { useSelector } from 'react-redux'
+//import { useSelector } from 'react-redux'
 
 // const confirmedItems = [
 //     {
@@ -120,7 +120,12 @@ export default function OrderRecieved() {
     const [activeOrders, setActiveOrders] = useState([]);
     const [completedOrders, setCompletedOrders] = useState([]);
 
-    const { confirmedItems } = useSelector(state => state.dinemate)
+    //const { confirmedItems } = useSelector(state => state.dinemate)
+    const [confirmedItems, setConfirmedItems] = useState([])
+    useEffect(() => {
+        const storedOrders = JSON.parse(localStorage.getItem("orders")) || [];
+        setConfirmedItems(storedOrders);
+    }, [])
 
     useEffect(() => {
         const active = confirmedItems.filter(o => !o.status.paid);
