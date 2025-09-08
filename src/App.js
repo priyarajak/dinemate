@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/dinemate">
       <Routes>
         <Route path="/" element={<StartPage />} />
         <Route path="/admin-login" element={<AdminPage />} />
