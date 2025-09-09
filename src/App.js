@@ -16,7 +16,7 @@ function App() {
     dispatch(loadOrdersFromStorage());
   }, [dispatch]);
   return (
-    <Router basename="/dinemate">
+    <Router>
       <Routes>
         <Route path="/" element={<StartPage />} />
         <Route path="/admin-login" element={<AdminPage />} />
