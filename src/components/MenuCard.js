@@ -31,7 +31,7 @@ export default function MenuCard() {
                                             <div class="">
                                                 <div class="d-flex justify-content-around align-items-center">
                                                     <div class="menu-item img">
-                                                        <img src={item.images} class="img-fluid rounded-start " alt={item.name}></img>
+                                                        <img src={`${process.env.PUBLIC_URL}${item.images}`} class="img-fluid rounded-start " alt={item.name}></img>
                                                     </div>
                                                     <div class="menu-info">
                                                         <div class="card-body">
