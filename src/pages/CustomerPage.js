@@ -4,12 +4,18 @@ import CartItems from "../components/CartItems";
 import NavbarCustomer from "../components/NavbarCustomer"
 import { setTableNumber } from "../features/dinemateSlice"
 import { useDispatch } from "react-redux"
+import { useEffect } from "react"
 
 export default function CustomerPage() {
 
     const [showTableForm, setShowTableForm] = useState(true);
     const dispatch = useDispatch()
-
+    useEffect(() => {
+        const savedTable = sessionStorage.getItem("tableNumber");
+        if (savedTable) {
+            dispatch(setTableNumber(savedTable));
+        }
+    }, [dispatch]);
 
     return (
         <div>

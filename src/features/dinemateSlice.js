@@ -74,6 +74,7 @@ const dinemateSlice = createSlice({
         ,
         setTableNumber(state, action) {
             state.tableNumber = action.payload
+            sessionStorage.setItem("tableNumber", action.payload)
         },
         setBillNeeded(state, action) {
             const tableNumber = action.payload;
@@ -85,6 +86,7 @@ const dinemateSlice = createSlice({
             );
 
             localStorage.setItem("orders", JSON.stringify(state.confirmedItems));
+            sessionStorage.removeItem("tableNumber")
 
             console.log("BILL NEEDED FUNCTION", state.confirmedItems)
         },
