@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Container, Badge, Card, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from 'react-redux'
-import { loadOrdersFromStorage } from "../features/dinemateSlice"
+import { useNavigate } from "react-router";
+import { loadOrdersFromStorage, setTableNumber } from "../features/dinemateSlice"
 
 
 
 export default function OrderRecieved() {
-
+    //const navigate = useNavigate()
     const dispatch = useDispatch()
     const { confirmedItems } = useSelector(state => state.dinemate)
     useEffect(() => {
@@ -76,6 +77,9 @@ export default function OrderRecieved() {
             setActiveOrders(newActive);
             setCompletedOrders(newCompleted);
             updateLocalStorage([...newActive, ...newCompleted]);
+            dispatch(setTableNumber(0));
+            sessionStorage.removeItem("tableNumber");
+
         }
     };
 

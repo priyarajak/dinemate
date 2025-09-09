@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Navigate, useNavigate } from 'react-router'
 import { addItems, removeItems, confirmOrder, setBillNeeded, loadOrdersFromStorage } from '../features/dinemateSlice'
 
 export default function CartItems() {
 
     const { cartItems, confirmedItems, tableNumber } = useSelector(state => state.dinemate)
+    //const navigate = useNavigate()
+
     const dispatch = useDispatch()
     useEffect(() => {
         const syncOrders = () => dispatch(loadOrdersFromStorage());
@@ -20,7 +23,7 @@ export default function CartItems() {
     const billStatus = order?.billNeeded || false;
     let billedItems = []
     if (billStatus) {
-        billedItems = order.items.reduce((res, item) => {
+        billedItems = order.items?.reduce((res, item) => {
             const exists = res.find(i => i.name === item.name)
             if (!exists) {
                 res.push({ ...item, price: item.price * item.quantity })
@@ -35,9 +38,9 @@ export default function CartItems() {
 
 
 
-    const subTotal = order ? order.items.reduce((sum, item) => sum + item.price * item.quantity, 0) : 0
+    const subTotal = order && order.items ? order.items.reduce((sum, item) => sum + item.price * item.quantity, 0) : 0
     const grandTotal = 1.1 * subTotal
-    console.log(order.items)
+    console.log(order?.items)
 
     return (
         <>
@@ -62,7 +65,7 @@ export default function CartItems() {
                 <h1>Everything Looks so Yummy</h1>
                 <div className="scrollable-menu" style={{ maxHeight: "700px" }}>
                     <ul className="list-unstyled">
-                        {order && order.items.map(item => (
+                        {order && order.items && order.items.map(item => (
                             <li key={item.id} className="mb-3 border-bottom pb-2">
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div>

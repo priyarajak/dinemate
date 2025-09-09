@@ -3,19 +3,39 @@ import MenuCard from "../components/MenuCard";
 import CartItems from "../components/CartItems";
 import NavbarCustomer from "../components/NavbarCustomer"
 import { setTableNumber } from "../features/dinemateSlice"
-import { useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 
 export default function CustomerPage() {
 
     const [showTableForm, setShowTableForm] = useState(true);
+    const { tableNumber } = useSelector(state => state.dinemate)
+
     const dispatch = useDispatch()
+
+
     useEffect(() => {
         const savedTable = sessionStorage.getItem("tableNumber");
         if (savedTable) {
             dispatch(setTableNumber(savedTable));
         }
     }, [dispatch]);
+    useEffect(() => {
+        if (tableNumber === 0) {
+            sessionStorage.removeItem("tableNumber"); // clear storage
+            setShowTableForm(true);
+        } else {
+            sessionStorage.setItem("tableNumber", tableNumber);
+        }
+    }, [tableNumber]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // prevent page reload
+        if (tableNumber > 0) {
+            setShowTableForm(false);
+        }
+    };
+
 
     return (
         <div>
@@ -29,7 +49,7 @@ export default function CustomerPage() {
                             <input type="number" className="form-control" id="tableNumber" onChange={(e) => dispatch(setTableNumber(e.target.value))} />
                         </div>
                         <div className="d-flex justify-content-center ">
-                            <button onClick={() => setShowTableForm(false)} type="submit" className="btn btn-primary my-4">Done</button>
+                            <button onClick={handleSubmit} type="submit" className="btn btn-primary my-4">Done</button>
                         </div>
                     </form>
                 </div>)}
