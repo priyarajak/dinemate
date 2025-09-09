@@ -39,13 +39,13 @@ export default function CartItems() {
 
 
     const subTotal = order && order.items ? order.items.reduce((sum, item) => sum + item.price * item.quantity, 0) : 0
-    const grandTotal = 1.1 * subTotal
+    const grandTotal = parseFloat((1.1 * subTotal).toFixed(2));
     console.log(order?.items)
 
     return (
         <>
             {billStatus && <div>
-                <h1>Thankyou for Dining with us !!</h1>
+                <h1 className="fs-4 fs-md-3 text-center">Thankyou for Dining with us !!</h1>
                 <ul className="list-unstyled">
                     {billedItems && billedItems.map(item => (
                         <li key={item.id} className="mb-3 border-bottom pb-2">
@@ -60,10 +60,17 @@ export default function CartItems() {
                             </div>
                         </li>
                     ))}
-                </ul></div>}
+                </ul>
+                <div className="d-flex justify-content-between">
+                    <h5>Taxes :</h5><span>{0.1 * subTotal}</span>
+                </div>
+                <div className="d-flex justify-content-between fw-bold">
+                    <h4 className="fs-4 fs-md-3 text-center">Grand Total :</h4><span>{grandTotal}</span>
+                </div>
+            </div>}
             {!billStatus && <div>
-                <h1>Everything Looks so Yummy</h1>
-                <div className="scrollable-menu" style={{ maxHeight: "700px" }}>
+                <h1 className="fs-4 fs-md-3 text-center">Everything Looks so Yummy</h1>
+                <div className="scrollable-menu p-2" style={{ maxHeight: "70vh", overflowY: "auto" }}>
                     <ul className="list-unstyled">
                         {order && order.items && order.items.map(item => (
                             <li key={item.id} className="mb-3 border-bottom pb-2">
@@ -88,9 +95,9 @@ export default function CartItems() {
                                     <div>
                                         <h5 className="mb-1">{item.name} :</h5>
                                         <div className="d-flex align-items-center gap-2">
-                                            <button onClick={() => dispatch(addItems(item))} type="button" className="btn btn-outline-primary">+</button>
+                                            <button onClick={() => dispatch(addItems(item))} type="button" className="btn btn-outline-primary btn-sm px-3">+</button>
                                             <span>{item.quantity}</span>
-                                            <button onClick={() => dispatch(removeItems(item))} type="button" className="btn btn-outline-primary">-</button>
+                                            <button onClick={() => dispatch(removeItems(item))} type="button" className="btn btn-outline-primary btn-sm px-3">-</button>
                                         </div>
                                     </div>
                                     <span className="fw-bold">${item.price * item.quantity}</span>
@@ -101,16 +108,16 @@ export default function CartItems() {
                 </div>
                 <div className="mt-3">
                     <button onClick={() => dispatch(confirmOrder())}
-                        type="button" class={cartItems.length !== 0 ? "btn btn-primary" : "btn btn-secondary"}
+                        type="button" className={cartItems.length !== 0 ? "btn btn-primary" : "btn btn-secondary"}
                         disabled={cartItems.length === 0 && confirmedItems.billNeeded} >Add These</button>
                     <div className="d-flex justify-content-between">
                         <h5>Taxes :</h5><span>{0.1 * subTotal}</span>
                     </div>
                     <div className="d-flex justify-content-between fw-bold">
-                        <h4>Grand Total :</h4><span>{grandTotal}</span>
+                        <h4 className="fs-4 fs-md-3 text-center">Grand Total :</h4><span>{grandTotal}</span>
                     </div>
-                    <div class="d-grid gap-2">
-                        <button onClick={() => dispatch(setBillNeeded(tableNumber))} class="btn btn-primary" disabled={billStatus} type="button">Bill Please</button>
+                    <div className="d-grid gap-2">
+                        <button onClick={() => dispatch(setBillNeeded(tableNumber))} className="btn btn-primary" disabled={billStatus} type="button">Bill Please</button>
                     </div>
                 </div>
             </div>}

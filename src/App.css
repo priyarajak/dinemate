@@ -264,3 +264,15 @@ body {
         opacity: 0;
       }
     }
+    @media (max-width: 576px) {
+      .scrollable-menu {
+        max-height: 60vh !important;
+      }
+      .list-unstyled h5 {
+        font-size: 1rem;
+      }
+      .btn {
+        font-size: 0.9rem;
+      }
+    }
+    
